@@ -9,7 +9,7 @@ namespace Task9
         static void Main(string[] args)
         {
             int num = 0;
-            WriteLine("Введите длинк сипска");
+            WriteLine("Введите длину сипска");
             while (!int.TryParse(ReadLine(),out num) || num <= 0)
                 WriteLine("Ошибка, введите положительное число");
 

@@ -33,10 +33,10 @@ namespace Task9
         public TwoWayLinkedList(int n, int StartNum = 1)
         {
             Data = StartNum;
-            if (n <= 0)
+            if (n <= 1)
                 return;
-            previous = new TwoWayLinkedList(n - 1, StartNum + 1);
-            previous.next = this;
+            next = new TwoWayLinkedList(n - 1, StartNum + 1);
+            next.previous = this;
         }
 
         public TwoWayLinkedList Search(int data)
@@ -71,5 +71,9 @@ namespace Task9
                 Delete(index - 1);
         }
 
+        public override string ToString()
+        {
+            return Data.ToString();
+        }
     }
 }
