@@ -2,7 +2,7 @@
 
 namespace Task9
 {
-    class TwoWayLinkedList
+    public class TwoWayLinkedList
     {
         public int Data { get; private set; } = 0;
         public TwoWayLinkedList next { get; private set; } = null;
@@ -19,9 +19,18 @@ namespace Task9
             }
             set { }
         }
+        public int Length
+        {
+            get
+            {
+                if (next == null)
+                    return 1;
+                return next.Length + 1;
+            }
+        }
 
-        TwoWayLinkedList() { }
-        TwoWayLinkedList(int n, int StartNum = 1)
+        public TwoWayLinkedList() { }
+        public TwoWayLinkedList(int n, int StartNum = 1)
         {
             Data = StartNum;
             if (n <= 0)
