@@ -49,26 +49,37 @@ namespace Task9
                 throw new NullReferenceException();
             return next.Search(data);
         }
-        public void Delete()
-        {
-            Delete(1);
-        }
         public void Delete(int index)
         {
             if(next == null)
                 throw new NullReferenceException();
-            if (index == 1)
-            {
-                next = next.next;
-                try
-                {
-                    next.previous = this;
-                }
-                catch (NullReferenceException) { }
-                catch (ArgumentNullException) { }
+
+            switch (index) {
+                case 0:
+                    Data = next.Data;
+                    next = next.next;
+                    try
+                    {
+                        next.previous = this;
+                    }
+                    catch (NullReferenceException) { }
+                    catch (ArgumentNullException) { }
+                    return;
+
+                case 1:
+                    next = next.next;
+                    try
+                    {
+                        next.previous = this;
+                    }
+                    catch (NullReferenceException) { }
+                    catch (ArgumentNullException) { }
+                    break;
+
+                default:
+                    next.Delete(index - 1);
+                    break;
             }
-            else
-                Delete(index - 1);
         }
 
         public override string ToString()

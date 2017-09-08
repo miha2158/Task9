@@ -17,6 +17,17 @@ namespace Task9
             for (int i = 0; i < list.Length; i++)
                 Write(" {0}",list[i]);
             WriteLine();
+			
+			WriteLine("Какой элемент удалить?");
+            while (!int.TryParse(ReadLine(),out num) || num < 0 || num >= list.Length)
+                WriteLine("Ошибка, введите положительное число меньше длины списка");
+			
+			list.Delete(num);
+
+            WriteLine("\nРезультат");
+            for (int i = 0; i < list.Length; i++)
+                Write(" {0}", list[i]);
+            WriteLine();
 
             ReadKey(true);
         }
