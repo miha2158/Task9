@@ -39,15 +39,13 @@ namespace Task9
             next.previous = this;
         }
 
-        public TwoWayLinkedList Search(int data)
+        public int Search(int data)
         {
             if (data == Data)
-            {
-                return this;
-            }
+                return 0;
             if (next == null)
-                throw new NullReferenceException();
-            return next.Search(data);
+                return -1;
+            return next.Search(data) + 1;
         }
         public void Delete(int index)
         {
