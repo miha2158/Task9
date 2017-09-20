@@ -135,7 +135,7 @@ namespace Task9
             int num = 0;
             WriteLine("Введите длину сипска");
             while (!int.TryParse(ReadLine(), out num) || num <= 0)
-                WriteLine("Ошибка, введите положительное число");
+                WriteLine("Ошибка, введите натуральное число");
 
 
             var options = new[] { new[] { "Удалить" }, new[] { "Найти" }, new[] { "Выход" } };
