@@ -143,6 +143,7 @@ namespace Task9
 
             do
             {
+                Clear();
                 for (int i = 0; i < list.Length; i++)
                     Write(" {0}", list[i]);
                 WriteLine();
@@ -154,7 +155,7 @@ namespace Task9
                         WriteLine("Какой элемент удалить?");
                         while (!int.TryParse(ReadLine(), out num) || num < 0 || num >= list.Length)
                             WriteLine("Ошибка, введите положительное число меньше длины списка");
-                        list.Delete(num);
+                        list.Delete(num - 1);
 
                         WriteLine("\nРезультат");
                         for (int i = 0; i < list.Length; i++)
@@ -170,14 +171,15 @@ namespace Task9
                             WriteLine("Введите число");
                         var s = list.Search(num);
 
-                        WriteLine("Индекс найденного элемента: {0}", s);
+                        if (s != -1)
+                            WriteLine("Индекс найденного элемента: {0}", s + 1);
+                        else WriteLine("Элемент не найден");
                         ReadKey(true);
                         break;
 
                     case 2:
                         return;
                 }
-                Clear();
             }
             while (true);
         }

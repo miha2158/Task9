@@ -49,10 +49,11 @@ namespace Task9
         }
         public void Delete(int index)
         {
-            if(next == null)
-                throw new NullReferenceException();
+            if (next == null)
+                throw new IndexOutOfRangeException();
 
-            switch (index) {
+            switch (index)
+            {
                 case 0:
                     Data = next.Data;
                     next = next.next;
